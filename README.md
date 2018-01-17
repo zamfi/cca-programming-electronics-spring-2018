@@ -28,6 +28,7 @@ In class, we discussed the four basic building blocks of code: actions & recipes
 Finally, here are some inspirational videos to get you excited for our class if you're not already:
 - Creative Code
   - [Interviews with Practitioners](http://www.youtube.com/watch?v=eBV14-3LT-g)
+  - [Casey Reas](https://www.youtube.com/watch?v=_8DMEHxOLQE)
 - Basic robots
   - [Coffee-can robot](http://www.youtube.com/watch?v=b0mIshBIbvI#t=24)
   - [Tree-climbing robot](http://www.youtube.com/watch?v=zkpH1BjD6Wc)
