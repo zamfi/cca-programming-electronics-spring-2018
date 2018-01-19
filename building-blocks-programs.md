@@ -80,7 +80,7 @@ In the snippet of code above, Rudy runs `getColor`, which inspects Rudy's curren
 | firstColorSeen  | "blue"        |
 
 
- The `setColor` action then recalls that color -- that is, it gets it back from memory -- and uses it to paint (`setColor`) the square Rudy has since moved to. You can tell the `setColor` function what specific color to paint either directly (e.g., "blue" or "red") or indirectly via a variable as above.
+ The `setColor(firstColorSeen)` action then recalls that color by name -- that is, it gets it back from memory -- and uses it to paint (`setColor`) the square Rudy has since moved to. You can tell the `setColor` function what specific color to paint either directly (e.g., "blue" or "red") or indirectly via a variable as above.
 
 ### Making Decisions With `if` Statements
 
@@ -94,11 +94,15 @@ if (getColor == "blue") {
 }
 ```
 
-This program tells Rudy to check if the color of the square Rudy is currently on is blue, and if it is, Rudy should go `up`, but if it isn't, Rudy should go `down`. Make sure to use curly braces `{}` to indicate what's part of the if and what isn't -- you can have as many functions as you want as part of the `if`!
+The double-equals-sign `==` is the "comparison operator"; it checks if the two things on either side are equal.
+
+So, the program above tells Rudy to check if the color of the square Rudy is currently on is blue, and if it is, Rudy should go `up`, but if it isn't, Rudy should go `down`. 
+
+Make sure to use curly braces `{}` to indicate what's part of the if and what isn't -- you can have as many functions as you want as part of the `if`!
 
 The `else` part is entirely optional.
 
-Here another example:
+Here's another example:
 
 ```
 right
