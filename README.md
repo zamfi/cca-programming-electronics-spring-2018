@@ -4,7 +4,7 @@ This course repository contains homework assignments, useful guides, and code fo
 
 Also included in this repository is the official [course syllabus](syllabus.pdf).
 
-### Week 1: Wednesday, January 16, 2018
+### Week 1: Wednesday, January 17, 2018
 
 Lecture:
 - Introductions
