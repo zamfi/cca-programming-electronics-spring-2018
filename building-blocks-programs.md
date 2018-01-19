@@ -162,7 +162,7 @@ while (steps < 8) {
 }
 ```
 
-Each time through the loop, Rudy moves down **and** updates its memory by remembering that it has moved one additional step.
+Each time through the loop, Rudy moves down **and** updates its memory by remembering that it has moved one additional step. Remember that `steps = steps + 1` has the effect of putting the value of `steps + 1` into the variabled named `steps`.
 
 Convince yourself that `down` runs exactly 8 times in the code above!
 

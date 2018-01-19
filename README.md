@@ -59,3 +59,5 @@ Finally, here are some inspirational videos to get you excited for our class if 
   - [Makerbot Replicator](http://www.youtube.com/watch?v=NAbiAzYhTOQ)
 - Vacuuming
   - [Roomba](https://www.youtube.com/watch?v=0DNkbZvVYvc)
+
+[Homework for Week 1](hw/week1.md)
