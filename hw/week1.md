@@ -10,7 +10,7 @@ This homework has two parts; first, complete the exercises we began in class tod
 
 - Each page in that PDF contains one or more puzzles that should be solved by the same program; make sure each program solves all the puzzles on its page.
 
-- Publish your programs on the web, and [send me](mailto:jzamfirescupereira@cca.edu) a link. For this class, use GitHub to publish your work by [following this tutorial](http://github.com/zamfi/github-guide); make a new repository for each week's homework, and call this first one `hw1`. Then add or upload your solution to *each puzzle in its own file*, named `puzzle-1.program`, `puzzle-2.program`, etc.** 
+- Publish your programs on the web, and [send me](mailto:jzamfirescupereira@cca.edu) a link. For this class, use GitHub to publish your work by [following this tutorial](http://github.com/zamfi/github-guide); make a new repository for each week's homework, and call this first one `hw1`. Then add or upload your solution to *each puzzle in its own file*, named `puzzle-1.program`, `puzzle-2.program`, *etc.*
 
 #### Sharing & Caring (due Tuesday)
 
