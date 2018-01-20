@@ -1,4 +1,4 @@
-### Homework 1 (first part due Monday, September 10, 2017)
+### Homework 1 (first part due Monday, January 22)
 
 This homework has two parts; first, complete the exercises we began in class today. Second, share your solutions with someone else from class and ask them to "sign off" that your programs solve the puzzles!
 
