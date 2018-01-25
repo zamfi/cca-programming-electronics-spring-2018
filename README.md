@@ -63,7 +63,7 @@ Finally, here are some inspirational videos to get you excited for our class if 
 [Homework for Week 1](hw/week1.md)
 
 
-### Week 2: Wednesday, September 13, 2017
+### Week 2: Wednesday, January 24, 2017
 
 In-class:
 - Homework review.
