@@ -14,6 +14,8 @@ Learn about p5.js. Watch these videos by the wonderful and inimitable Daniel Shi
 - 1.4, Color: https://www.youtube.com/watch?v=9mucjcrhFcM
 - 2.1, Variables: https://www.youtube.com/watch?v=RnS0YNuLfQQ
 
+You can run all the code for this assignment in a rudy p5.js playground; click the "p5.js playground" button at rudy.zamfi.net.
+
 #### Analyzing code
 
 Take a look at these three sketches, make sure you understand what's going on, and make the requested changes:
