@@ -1,4 +1,4 @@
-### Homework 2 (first part due Monday, January 29, 2018)
+### Homework 2 (first part due Sunday, January 28, 2018)
 
 This homework has two parts; first, explore p5.js by modifying some code and writing some new code from scratch. Second, share your solutions with someone else from class and ask them to to provide feedback on your work!
 
