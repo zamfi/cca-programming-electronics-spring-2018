@@ -90,7 +90,7 @@ An exercise for developing facility with writing code to achieve a particular vi
 
 1.  **Modern-day Mondrian**. 
 
-    ![https://upload.wikimedia.org/wikipedia/commons/4/47/Piet_Mondriaan_-_03.jpg](Piet Mondrian)
+    ![Piet Mondrian](https://upload.wikimedia.org/wikipedia/commons/4/47/Piet_Mondriaan_-_03.jpg)
 
     Piet Mondrian was one of the pioneers of 20th century abstract art; his style is [very recognizable](https://www.google.com/search?q=mondrian&client=safari&rls=en&tbm=isch&tbas=0&source=lnt&sa=X&ved=0ahUKEwjonc6SufTYAhWN0YMKHYtoCJsQpwUIIA&biw=1362&bih=940&dpr=2#imgrc=_). Let's copy him!
     
