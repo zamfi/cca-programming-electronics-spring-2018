@@ -107,7 +107,7 @@ An exercise for developing facility with writing code to achieve a particular vi
 
 You'll receive a link from me or Lei for someone else's homework.
 
-- When you receive a link to evaluate, look at each program and run through it to make sure that it solves the corresponding puzzle.
+- When you receive a link to evaluate, look at each program and try running it. Does it work as you expect? Is it easy to understand the code?
 
 - If it doesn't, file a "bug report"!
 
