@@ -6,7 +6,7 @@ As a refresher, [**read through the building blocks we covered in class**](../bu
 
 Like last week, publish your programs on the web, and [send me](mailto:jzamfirescupereira@cca.edu) a link. For this class, use GitHub to publish your work by [following this tutorial](http://github.com/zamfi/github-guide); make a new repository for each week's homework, and call this first one `hw2`. Then add or upload your solution to *each puzzle in its own file*, named `puzzle-1.js`, `puzzle-2.js`, *etc.*
 
-##### Tutorials about p5.js
+#### Tutorials about p5.js
 
 Learn about p5.js. Watch these videos by the wonderful and inimitable Daniel Shiffman. You may find it helpful to code along with Daniel.
 
@@ -14,7 +14,7 @@ Learn about p5.js. Watch these videos by the wonderful and inimitable Daniel Shi
 - 1.4, Color: https://www.youtube.com/watch?v=9mucjcrhFcM
 - 2.1, Variables: https://www.youtube.com/watch?v=RnS0YNuLfQQ
 
-##### Analyzing code
+#### Analyzing code
 
 Take a look at these three sketches, make sure you understand what's going on, and make the requested changes:
 
@@ -84,7 +84,7 @@ Take a look at these three sketches, make sure you understand what's going on, a
 
     **Challenge**: Instead of drawing ellipses, use the [beginShape](https://p5js.org/reference/#/p5/beginShape) function to draw a shape that's appropriate to your choice of color. Start by running the example on the `beginShape` reference page to understand how the function works and pairs with `vertex` and `endShape`.
     
-##### Writing New Code
+#### Writing New Code
 
 An exercise for developing facility with writing code to achieve a particular visual end.
 
