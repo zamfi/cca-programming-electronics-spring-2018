@@ -80,5 +80,7 @@ Workshop:
     4.  Modify the `rect` function so that it takes a fifth parameter, a color to draw the outline with.
     4.  Modify the `rect` function so that it fills in the rectangle instead of just drawing the outline.
     5.  **Extra Challenge**: Define a `line` function, that takes four parameters: `x1`, `y1`, `x2`, and `y2`, and draws a line between the point defined by (`x1`,`y1`) and the point defined by (`x2`,`y2`). There are many ways to approach this challenge! You may find some Internet research instructive.
-    6.  **Extra Challenge**: Define a `circle` function that takes three parameters: `x`, `y`, and `r`, and draws a circle of radius `r` centered on the point defined by (`x`,`y`). You find trigonometry helpful for this 
+    6.  **Extra Challenge**: Define a `circle` function that takes three parameters: `x`, `y`, and `r`, and draws a circle of radius `r` centered on the point defined by (`x`,`y`). You find trigonometry helpful for this exercise.
+
+[Homework for Week 2](hw/week2.md)
 
