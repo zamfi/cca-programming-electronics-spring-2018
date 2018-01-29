@@ -62,9 +62,12 @@ Take a look at these three sketches, make sure you understand what's going on, a
     This code neither uses a loop nor repeats the `line` function many times -- yet it still draws many lines. Reflect on that for a moment.
     
     **Assignment**:
+    
     a.  Modify the code so that the start point of every line is the center of the canvas.
+    
     b.  Modify the code so that the end point of every line is in the top-right quadrant of the canvas.
-    d.  **Challenge**: Modify the code so that the [stroke color](https://p5js.org/reference/#/p5/stroke) of each line depends on its start point's `x` coordinate, or (for extra challenge!) its length. Variables may be helpful!
+    
+    c.  **Challenge**: Modify the code so that the [stroke color](https://p5js.org/reference/#/p5/stroke) of each line depends on its start point's `x` coordinate, or (for extra challenge!) its length. Variables may be helpful!
 
 3.  **Fading circles**. Start with this code that draws pastel-colored circles to the screen:
 
