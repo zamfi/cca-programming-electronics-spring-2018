@@ -84,3 +84,264 @@ Workshop:
 
 [Homework for Week 2](hw/week2.md)
 
+### Week 3: Wednesday, January 31, 2018
+
+In-class:
+- Homework Review.
+- Understanding statement evaluation.
+
+Workshop:
+
+#### Class Quilt
+
+Working with a partner, make two patches for the class quilt! Start with the following code:
+
+```javascript
+function yourPatch(x, y) {
+  noFill();
+  stroke(238);
+  rect(x, y, 100, 100);
+  
+  // your code here!
+}
+
+background(255);
+
+yourPatch(0, 0);
+yourPatch(width-100, height-100);
+```
+
+Modify the `yourPatch` function, replacing `// your code here!` with drawing commands that draw inside the 100-by-100 pixel square. Use `x` and `y` to get yourself started -- all your shapes should appear within the rectangle bounded to the left by `x`, above by `y`, to the right by `x+100` and below by `y+100`. That means that you'll need `x` and `y` (or other variables you create that *depend on* `x` and `y`) in every parameter to every painting function you use.
+
+We'll then take all our functions and pattern them together into a class quilt! Making your functions depend on `x` and `y` means that we can place them anywhere in the quilt by "passing in" the appropriate `x` and `y` coordinates for that place in the quilt.
+
+When you like what you have, change the call your `yourPatch` to draw your patch at `(0, 0)` and `(100, 100)` -- make sure your drawing moves along with the coorinates.
+
+Feel free (but not compelled) to remove the border rectangle when you like what you have!
+
+Here's a (frankly, pretty complicated) example that I came up with for myself:
+
+```javascript
+function jdPatch(x, y) {
+  noFill();
+  stroke(238);
+  rect(x, y, 100, 100);
+  
+  // blocky J
+  fill(238);
+  noStroke();
+  rect(x+20, y+20, 60, 20);
+  rect(x+40, y+40, 20, 40);
+  rect(x+20, y+60, 40, 20);
+  
+  // overlay of lines
+  stroke(0);
+  var lines = 3;
+  while (lines < 50) {
+    line(x+lines, y, x, y+lines);
+    lines = lines + 5;
+  }
+  stroke(200);
+  while (lines < 100) {
+    line(x+lines, y, x, y+lines);
+    lines = lines + 3;
+  }
+  stroke(255, 127, 0);
+  lines = 0;
+  while (lines < 50) {
+    line(x+100, y+lines, x+lines, y+100);
+    lines = lines + 4;
+  }
+  stroke(0, 64, 127);
+  while (lines < 100) {
+    line(x+100, y+lines, x+lines, y+100);
+    lines = lines + 4;
+  }
+}
+```
+
+You don't have to understand exactly how the code above works -- but do notice that **every single coordinate** parameter of every shape and line has `x` or `y` in it -- usually something added to `x` or `y` -- and that's so that every shape is drawn **relative to `(x, y)`**. That way, when I run `jdPatch(0,0)` or `jdPatch(100, 100)`, all my shapes are offset by the correct amount.
+
+#### Working with Loops
+
+Here's one way of working with loops, and figuring out how to turn a pattern into code:
+
+1. Write down the coordinates of the shapes you want to create in your loop.
+2. Find the pattern for those coordinates
+  a. Where does it start?
+  b. Where does it end?
+  c. How much does it change each time?
+3. Use that pattern in a for loop: `for (var i = START; i < END; i = i + CHANGE) { ... }`
+  
+For example, to create the following sketch:
+
+![triangle of lines](img/triangle.png)
+
+...start by writing down some endpoints for those lines:
+
+```
+(20, 20) -> (20, 20)
+(20, 30) -> (30, 20)
+(20, 40) -> (40, 20)
+(20, 50) -> (50, 20)
+(20, 60) -> (60, 20)
+(20, 70) -> (70, 20)
+(20, 80) -> (80, 20)
+.
+.
+.
+(20, 480) -> (480, 20)
+```
+
+...from these coordinates, we can find a pattern for each of the four parameters we need to draw a line:
+
+- `startX`: always 20
+- `startY`: starts at 20, ends at 480, goes up by 10 each time
+- `endX`: starts at 20, ends at 480, goes up by 10 each time
+- `endY`: always 20
+
+...from this pattern, we can generate a loop that draws these lines, by creating a variable that starts at `20`, ends at `480`, and goes up by `10` each time. We won't call the variable `x` or `y` beacuse we don't use it exclusively for either coordinate.
+
+```javascript
+for (var i = 20; i <= 480; i = i + 10) {
+  var startX = 20;
+  var startY = i;
+  var endX = i;
+  var endY = 20;
+  line(startX, startY, endX, endY);
+}
+```
+
+
+#### Loops Workshop
+
+Today, we'll practice loops:
+
+1.  Together, we'll make vertical lines:
+    
+    ![vertical lines](img/vertical-lines.png)
+
+2.  Then, with a partner, you'll make horizontal lines:
+    
+    ![horizontal lines](img/horizontal-lines.png)
+    
+3.  Try these concentric circles too:
+    
+    ![concentric circles](img/concentric-circles.png)
+
+4.  And this cone:
+
+    ![cone of lines](img/cone-of-lines.png)
+    
+5.  Also this diamond:
+
+    ![diamond](img/diamond.png)
+    
+6.  What about these taller lines?
+    
+    ![doubles](img/doubles.png)
+    
+7.  For this you'll need a **loop within a loop**:
+    
+    ![artdeco](img/artdeco.png)
+
+8.  Now try this grid of circles; you'll need **nested loops** for this one too!
+    
+    ![circle grid](img/circle-grid.png)
+
+9.  **Challenge:** Using a technique called the "exponential moving average", we can create a smooth easing animation like this:
+    
+    ![easing position](img/easing-position.gif)
+    
+    The technique works by one variable to store intermediate values for another variable. For example, in the sketch above, the *x-* and *y-* coordinates of the circle are stored in variables `x` and `y`, which are **eased** to the target values given by `mouseX` and `mouseY`.
+    
+    "Exponential moving average" is a fancy way of saying: first, pick a fixed **rate** at which the easing occurs for a variable reaching its target. That rate controls how much impact the target has on the value each frame. For exampe, if the rate is 10%, then the new value each frame is 10% the target value and 90% the old value of the variable. Here's some sample code; the key is in the line `x = target*rate + x*(1-rate);`:
+    
+    ```javascript    
+    var rate = 0.1;
+    var x = 0;
+    var target = 100;
+    
+    while (true) {
+      ellipse(x, 100, 15, 15);
+      x = target*rate + x*(1-rate); // rate is 0.1, or 10% -- (1-rate) is 0.9, or 90%
+    }
+    ```
+    
+    Each frame, x gets 10% closer to its target.
+    
+    Modify this code to create a circle that follows the mouse as in the anigif above.
+
+
+#### Understanding & Usuriping Code
+
+Let's try to modify the following code:
+
+```javascript
+function setup() { 
+  createCanvas(400, 400);
+  blendMode(BLEND);
+  background(0);
+} 
+
+var NUMDOTS = 10;
+
+function draw() { 
+  background(0, 10);
+  
+  drawDots();
+  drawArc();
+}
+
+function dotX(dotNumber) {
+  var dotSpacing = width/(NUMDOTS+1);
+
+  return dotSpacing * (dotNumber + 1);
+}
+
+function drawDots() {
+  fill(220);
+  noStroke();
+  for (var dot = 0; dot < NUMDOTS; dot += 1) {
+    ellipse(dotX(dot), height*2/3, 10)
+  }
+}
+
+var startDot = 2;
+var endDot = 7;
+var arcProgress = 0;
+var arcIncrement = 0.3;
+
+function drawArc() {
+  var startX = dotX(startDot);
+  var endX = dotX(endDot);
+  var localIncrement = arcIncrement/abs(startDot-endDot);
+  
+  var startArc = arcProgress * PI + PI;
+  var endArc = constrain(arcProgress + localIncrement, 0, 1) * PI + PI;
+  
+  if (endDot < startDot) {
+    var tArc = PI-startArc
+    startArc = PI-endArc;
+    endArc = tArc;
+  }
+  
+  stroke(220);
+  strokeWeight(4);
+  noFill();
+  arc((startX+endX)/2, height*2/3, endX-startX, endX-startX, startArc, endArc);
+  
+  arcProgress = arcProgress + localIncrement;
+  if (arcProgress >= 0.999) {
+    startDot = endDot;
+    while (endDot == startDot) {
+	    endDot = int(random(NUMDOTS));
+    }
+    arcProgress = 0;
+  } 
+}
+```
+
+First, we'll try to get a general understanding of what it does. How does it work? What actually draws stuff?
+
+Next, we'll try to add **sound**! Perhaps a soothing "doink" when the arcs hit the dots will sound like rain...
