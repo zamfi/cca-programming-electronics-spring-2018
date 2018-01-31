@@ -335,7 +335,7 @@ function drawArc() {
   if (arcProgress >= 0.999) {
     startDot = endDot;
     while (endDot == startDot) {
-	    endDot = int(random(NUMDOTS));
+      endDot = int(random(NUMDOTS));
     }
     arcProgress = 0;
   } 
