@@ -274,3 +274,5 @@ Today, we'll practice loops:
     Each frame, x gets 10% closer to its target.
     
     Modify this code to create a circle that follows the mouse as in the anigif above.
+
+[Homework for Week 3](hw/week3.md)
