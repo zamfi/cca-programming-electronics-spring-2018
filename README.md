@@ -94,7 +94,7 @@ Workshop:
 
 #### Class Quilt
 
-Working with a partner, make two patches for the class quilt! Start with the following code:
+Make a patch for the class quilt! Start with the following code:
 
 ```javascript
 function yourPatch(x, y) {
@@ -106,9 +106,10 @@ function yourPatch(x, y) {
 }
 
 background(255);
+yourPatch(0, 0); // draw patch at upper-left
 
-yourPatch(0, 0);
-yourPatch(width-100, height-100);
+background(255);
+yourPatch(width-100, height-100); // draw patch at lower-right
 ```
 
 Modify the `yourPatch` function, replacing `// your code here!` with drawing commands that draw inside the 100-by-100 pixel square. Use `x` and `y` to get yourself started -- all your shapes should appear within the rectangle bounded to the left by `x`, above by `y`, to the right by `x+100` and below by `y+100`. That means that you'll need `x` and `y` (or other variables you create that *depend on* `x` and `y`) in every parameter to every painting function you use.
@@ -119,10 +120,10 @@ When you like what you have, change the call your `yourPatch` to draw your patch
 
 Feel free (but not compelled) to remove the border rectangle when you like what you have!
 
-Here's a (frankly, pretty complicated) example that I came up with for myself:
+Here's an example that I came up with for myself:
 
 ```javascript
-function jdPatch(x, y) {
+function zamfiPatch(x, y) {
   noFill();
   stroke(238);
   rect(x, y, 100, 100);
@@ -160,7 +161,9 @@ function jdPatch(x, y) {
 }
 ```
 
-You don't have to understand exactly how the code above works -- but do notice that **every single coordinate** parameter of every shape and line has `x` or `y` in it -- usually something added to `x` or `y` -- and that's so that every shape is drawn **relative to `(x, y)`**. That way, when I run `jdPatch(0,0)` or `jdPatch(100, 100)`, all my shapes are offset by the correct amount.
+You don't have to understand exactly how the code above works -- but do notice that **every single coordinate** parameter of every shape and line has `x` or `y` in it -- usually something added to `x` or `y` -- and that's so that every shape is drawn **relative to `(x, y)`**. That way, whether I run `jdPatch(0,0)` or `jdPatch(100, 100)`, all my shapes are offset by the correct amount.
+
+**Challenge**: Make an animated patch! Draw something slightly different every time your function is called. You can accomplish this using the `random` function, or by keeping variables outside your function, using them to position or color shapes, and then updating them each time your patch function is called. NB: use variables names that are unique to you: preface them with a nickname, for example!
 
 #### Working with Loops
 
@@ -171,7 +174,7 @@ Here's one way of working with loops, and figuring out how to turn a pattern int
   a. Where does it start?
   b. Where does it end?
   c. How much does it change each time?
-3. Use that pattern in a for loop: `for (var i = START; i < END; i = i + CHANGE) { ... }`
+3. Use that pattern in a *for* loop: `for (var i = START; i < END; i = i + CHANGE) { ... }`
   
 For example, to create the following sketch:
 
@@ -241,15 +244,15 @@ Today, we'll practice loops:
     
     ![doubles](img/doubles.png)
     
-7.  For this you'll need a **loop within a loop**:
+7.  **Challenge**: For this you'll need a **loop within a loop**:
     
     ![artdeco](img/artdeco.png)
 
-8.  Now try this grid of circles; you'll need **nested loops** for this one too!
+8.  **Challenge**: Now try this grid of circles; you'll need **nested loops** for this one too!
     
     ![circle grid](img/circle-grid.png)
 
-9.  **Challenge:** Using a technique called the "exponential moving average", we can create a smooth easing animation like this:
+9.  **Extra Challenge:** Using a technique called the "exponential moving average", we can create a smooth easing animation like this:
     
     ![easing position](img/easing-position.gif)
     
@@ -271,77 +274,3 @@ Today, we'll practice loops:
     Each frame, x gets 10% closer to its target.
     
     Modify this code to create a circle that follows the mouse as in the anigif above.
-
-
-#### Understanding & Usuriping Code
-
-Let's try to modify the following code:
-
-```javascript
-function setup() { 
-  createCanvas(400, 400);
-  blendMode(BLEND);
-  background(0);
-} 
-
-var NUMDOTS = 10;
-
-function draw() { 
-  background(0, 10);
-  
-  drawDots();
-  drawArc();
-}
-
-function dotX(dotNumber) {
-  var dotSpacing = width/(NUMDOTS+1);
-
-  return dotSpacing * (dotNumber + 1);
-}
-
-function drawDots() {
-  fill(220);
-  noStroke();
-  for (var dot = 0; dot < NUMDOTS; dot += 1) {
-    ellipse(dotX(dot), height*2/3, 10)
-  }
-}
-
-var startDot = 2;
-var endDot = 7;
-var arcProgress = 0;
-var arcIncrement = 0.3;
-
-function drawArc() {
-  var startX = dotX(startDot);
-  var endX = dotX(endDot);
-  var localIncrement = arcIncrement/abs(startDot-endDot);
-  
-  var startArc = arcProgress * PI + PI;
-  var endArc = constrain(arcProgress + localIncrement, 0, 1) * PI + PI;
-  
-  if (endDot < startDot) {
-    var tArc = PI-startArc
-    startArc = PI-endArc;
-    endArc = tArc;
-  }
-  
-  stroke(220);
-  strokeWeight(4);
-  noFill();
-  arc((startX+endX)/2, height*2/3, endX-startX, endX-startX, startArc, endArc);
-  
-  arcProgress = arcProgress + localIncrement;
-  if (arcProgress >= 0.999) {
-    startDot = endDot;
-    while (endDot == startDot) {
-      endDot = int(random(NUMDOTS));
-    }
-    arcProgress = 0;
-  } 
-}
-```
-
-First, we'll try to get a general understanding of what it does. How does it work? What actually draws stuff?
-
-Next, we'll try to add **sound**! Perhaps a soothing "doink" when the arcs hit the dots will sound like rain...
