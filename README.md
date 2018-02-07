@@ -276,3 +276,91 @@ Today, we'll practice loops:
     Modify this code to create a circle that follows the mouse as in the anigif above.
 
 [Homework for Week 3](hw/week3.md)
+
+
+### Week 4: Wednesday, February 7, 2018
+
+In-class:
+- Homework Review
+  - State machines, briefly: you are keeping state based on user inputs, and drawing based on that state. Input -> computation -> output.
+- Programming for Interaction
+
+#### Class Quilt!
+
+Here's what we have so far -- if you haven't sent me your quilt patch yet, please do so ASAP!
+
+![class quilt](img/class-quilt.png)
+
+Thanks to all who submitted!
+
+#### Programming for Interaction
+
+So far we've been focusing on the "output" part of programming. Today we'll work with the "input" part.
+
+p5 enables a few different ways of getting user input. In the homework we used keyPressed to handle color changes, but there is a full list of input functions in the [p5.js reference](https://p5js.org/reference/)
+
+For today's workshop, we'll consider a few sketches. First, let's extend one of the exercises from homework. Starting with this code from the homework:
+
+```javascript
+function setup() {
+  createCanvas(400, 400);
+  background(255);
+  colorMode(HSB);
+  noStroke();
+}
+
+var diameter = 10;
+
+function draw() {
+  if (mouseIsPressed) {
+    ellipse(mouseX, mouseY, diameter);
+  }
+}
+
+function keyPressed() {
+  print(key);
+  if (key == 'R') {
+    fill(0, 100, 100);
+  } else if (key == 'G') {
+    fill(100, 70, 100);
+  } else if (key == 'B') {
+    fill(210, 100, 100);
+  } else if (key == 'T') {
+    fill(180, 100, 100);
+  } else if (key == 'Y') {
+    fill(60, 100, 100);
+  } else if (key == 'P') {
+    fill(310, 100, 100);
+  }
+
+  if (key == 1) {
+    diameter = 10;
+  } else if (key == 2) {
+    diameter = 20;
+  } else if (key == 3) {
+    diameter = 30;
+  }
+
+  if (key == 'E') {
+    diameter = 30;
+    fill(0, 0, 100);
+  }
+}
+```
+
+**Exercise:** Can we modify this code so that the painting only happens while the corresponding key is pressed?
+
+Next, consider this sketch: https://alpha.editor.p5js.org/jd/sketches/SkyDECDIz
+
+Let's add a few more sounds, and extend this sketch:
+
+**Exercise:** Add three more sounds to the assets folder, and play different sounds based on different keypresses.
+
+**Exercise:** Use `mousePressed` to change something about the sounds or how they are played.
+
+Now, consider this sketch: http://alpha.editor.p5js.org/jd/sketches/S1n5FmOLz
+
+**Exercise:** Add some per-key visual feedback. In the current code, there's a single "playing" variable that tracks whether any key is playing. Change this "state" so that there's a state per key!
+
+**Exercise:** Do something fun or interesting with this sketch.
+
