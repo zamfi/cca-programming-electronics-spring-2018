@@ -364,3 +364,5 @@ Now, consider this sketch: http://alpha.editor.p5js.org/jd/sketches/S1n5FmOLz
 
 **Exercise:** Do something fun or interesting with this sketch.
 
+[Homework for Week 4](hw/week4.md)
+
