@@ -2,6 +2,8 @@
 
 This homework has three parts; first, extend the oscillator keyboard we looked at in class. Second, share your solutions with someone else from class and ask them to to provide feedback on your work. Third, watch two tutorials by Daniel Shiffman about objects and arrays.
 
+Save all your homework exercises in a `hw4` repository in your [GitHub account](http://github.com/zamfi/github-guide), using the filenames given below before each assignment.
+
 #### The Visual Musical Instrument mini-project
 
 This week and next, you'll work on creating a visual musical instrument. Some of this work will be assigned, but most will come from you. 
@@ -125,11 +127,11 @@ function keyReleased() {
 
 -  **Assginment**: `musical-instrument.js` Do something new, interesting, and different. Articulate what you chose in a comment at the top of this sketch.
 
--  **Optional Challenge**: Use the `millis` or `seconds` function to create a visual metronome to help you keep time while playing your instrument.
+-  **Optional Challenge**: `metronome.js` Use the `millis` or `seconds` function to create a visual metronome to help you keep time while playing your instrument.
 
--  **Optional Challenge**: Implement a volume control, perhaps using keys or mouse input.
+-  **Optional Challenge**: `volume.js` Implement a volume control, perhaps using keys or mouse input.
 
--  **Optional Challenge**: Octave shifts in music correspond to a doubling of frequency. Add an input that shifts the octave of your instrument up or down.
+-  **Optional Challenge**: `octaves.js` Octave shifts in music correspond to a doubling of frequency. Add an input that shifts the octave of your instrument up or down.
 
 #### Tutorials (due before class on Wednesday)
 
