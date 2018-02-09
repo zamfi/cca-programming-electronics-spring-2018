@@ -125,13 +125,22 @@ function keyReleased() {
 
 -  **Assignment**: `mouse-input.js` Incorporate mouse input into your sketch in some way. You could use it to control pitch, for example, by changing the frequency of one or more of the oscillators.
 
--  **Assginment**: `musical-instrument.js` Do something new, interesting, and different. Articulate what you chose in a comment at the top of this sketch.
-
 -  **Optional Challenge**: `metronome.js` Use the `millis` or `seconds` function to create a visual metronome to help you keep time while playing your instrument.
 
 -  **Optional Challenge**: `volume.js` Implement a volume control, perhaps using keys or mouse input.
 
 -  **Optional Challenge**: `octaves.js` Octave shifts in music correspond to a doubling of frequency. Add an input that shifts the octave of your instrument up or down.
+
+Next, draw on your own creative talents. Feel free to go as crazy as you like and as your abilities enable! Consider for inspiration: 
+
+-  [Laurie Spiegel - The Expanding Universe](https://www.youtube.com/watch?v=KD8hkveKmYQ)
+-  [Gérard Grisey ‎– Partiels](https://www.youtube.com/watch?v=X6S7W8BkKmw) -- consider how you might layer sounds?
+-  [Synesthesia](https://en.wikipedia.org/wiki/Synesthesia), the perceptual phenomenon that sometimes associates color with sound.
+-  The [history of musical instruments](https://en.wikipedia.org/wiki/Musical_instrument#History) is long and not particularly informative.
+-  If you're comfortable doing so, consider using [`loadJSON`](https://p5js.org/reference/#/p5/loadJSON) to get data from the internet as a potential input to your instrument; here's a (quite complex) example: [Hello p5 Weather](https://p5js.org/examples/hello-p5-weather.html)
+
+-  **Assginment**: `musical-instrument.js` Do something new, interesting, and different. In a comment at the top of this sketch articulate what is new, interesting, or different about your work.
+
 
 #### Tutorials (due before class on Wednesday)
 
