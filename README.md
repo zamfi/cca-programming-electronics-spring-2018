@@ -507,7 +507,7 @@ function draw() {
   // darker as it gets closer to 0
   push();
   fill(y);
-	translate(x, y);
+  translate(x, y);
   rotate(r);
   rect(-10, -10, 20, 20);
   pop();
