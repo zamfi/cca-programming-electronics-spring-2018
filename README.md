@@ -632,11 +632,15 @@ function draw() {
 }
 ```
 
+That `for` loop "iterates over" every `index` from `0` to `2` of the array. For each of `0`, `1`, and `2`, the loop draws the ellipse at the `x` and `y` coordinate for that index.
+
 And we can do something similar for the creation of the initial data, the initial “clay”:
 
 ```javascript
 var x = [45, 55, 50];
 var y = [50, 65, 80];
+
+// etc.
 ```
 
 …or…
@@ -665,24 +669,77 @@ function draw() {
 }
 ```
 
+To actually bounce these circles, we once again need to add to our model: a speed in the `x` and `y` directions for each circle. Two new arrays should suffice! (This code also uses a third new array for color.)
+
+```javascript
+var x = [];
+var y = [];
+var xSpeed = [];
+var ySpeed = [];
+var colors = [];
+
+function setup() {
+  createCanvas(400, 400);
+
+  for (var index = 0; index < 100; index = index + 1) {
+    x[index] = width / 2;
+    y[index] = height / 2;
+    xSpeed[index] = random(-5, 5);
+    ySpeed[index] = random(-5, 5);
+    colors[index] = color(random(255), random(255), random(255))
+  }
+}
+
+function draw() {
+  background(0);
+  noStroke();
+
+  for (var index = 0; index < 100; index = index + 1) {
+    fill(colors[index]);
+    ellipse(x[index], y[index], 10);
+    x[index] = x[index] + xSpeed[index];
+    y[index] = y[index] + ySpeed[index];
+
+    if (x[index] > width - 5) {
+      xSpeed[index] = -xSpeed[index];
+    }
+
+    if (y[index] > height - 5) {
+      ySpeed[index] = -ySpeed[index];
+    }
+
+    if (x[index] < 5) {
+      xSpeed[index] = -xSpeed[index];
+    }
+
+    if (y[index] < 5) {
+      ySpeed[index] = -ySpeed[index];
+    }
+  }
+}
+```
+
 **Exercise**: Modify the water drip or square smoke sketches to add additional "drops" or "smoke". Try without an array first. Then use an array to add 20 or more. (Note: Drops may be easier than smoke!)
 
 #### Objects
 
-Finally, to bounce these circles, we need the extra "direction" data. We could just add two more arrays: one for `xDirection` and another for `yDirection`. Or, we can bundle together all the properties of each circle — the `x`, `y`, `xDirection`, and `yDirection`, into a single object. (This code uses `xd` in place of `xDirection`, and similarly for `y`.)
+Finally, to bounce these circles, we need the extra "direction" data. We could just add two more arrays: one for `xSpeed` and another for `ySpeed`. Or, we can bundle together all the properties of each circle — the `x`, `y`, `xSpeed`, and `ySpeed`, into a single object. (Noe that this code uses `xd` in place of `xSpeed`, `yd` in place of `ySpeed`, and merges the four boundary conditions into two!)
 
 ```javascript
 var circles = [];
 
 function setup() {
   createCanvas(400, 400);
+  colorMode(HSB);
+
   for (var index = 0; index < 100; index = index + 1) {
     // new "circle" object, with x, y, xd and yd properties:
-		circles[index] = {
-      x: random(10, width-10),
-      y: random(10, height-10),
-      xd: 1,
-      yd: 1
+    circles[index] = {
+      x: width / 2,
+      y: height / 2,
+      xd: random(-2, 2),
+      yd: random(-2, 2),
+      c: color(random(360), 60, 100)
     }
   }
 }
@@ -694,14 +751,15 @@ function draw() {
   for (var index = 0; index < 100; index = index + 1) {
     // get circle object
     var circle = circles[index];
-    
+
     // draw it
+    fill(circle.c);
     ellipse(circle.x, circle.y, 10);
 
     // move it according to direction
-    circle.x = circle.x + circle.xd * 3;
-    circle.y = circle.y + circle.yd * 1;
-    
+    circle.x = circle.x + circle.xd;
+    circle.y = circle.y + circle.yd;
+
     // check boundaries and update directions
     if (circle.x > width || circle.x < 0) {
       circle.xd = -circle.xd;
@@ -716,3 +774,5 @@ function draw() {
 Note what "event" triggers the bouncing. What if we do [something else](https://alpha.editor.p5js.org/jd/sketches/H1StgvZwG) in that `if` too?
 
 **Exercise**: Incorporate arrays or objects into your visual musical instrument.
+
+Here's the code we wrote together in class while working on this topic: [`circles-array.js`](https://gist.github.com/zamfi/6d0cf997c2585c6639e4517941af90a7) and [`circles-objects.js`](https://gist.github.com/zamfi/0698d29ad7ea0e1d53babfcc79bce672).
