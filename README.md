@@ -366,3 +366,341 @@ Now, consider this sketch: http://alpha.editor.p5js.org/jd/sketches/S1n5FmOLz
 
 [Homework for Week 4](hw/week4.md)
 
+### Week 5: Wednesday, February 14, 2018
+
+Today's topic is data modeling & simulations. These are super powerful concepts! Turns out a lot of what you actually do with a computer involves some data that models something, and which you “simulate”.
+
+In p5.js, this manifests itself as the data-draw synergy. Think of stop-motion animation. You have some state of the world, some clay you’ve placed, and you take a photo. Then you move the clay, and you take another photo. Move the clay, take another photo.
+
+Variables are the “clay”. The draw() function is the camera taking the photo. In draw(), after you “take the picture” by drawing all your stuff based on your “clay”, you can move around your clay by changing your variables.
+
+Here’s an introductory example:
+
+var x = 45;
+var y = 50;
+
+function setup() {
+  createCanvas(400, 400);
+}
+  
+function draw() {
+  background(0);
+  noStroke();
+
+  // draw ellipse
+  ellipse(x, y, 10);
+  
+  // move right 3 pixels
+  x = x + 3;
+  
+  // move down 1 pixel
+  y = y + 1;
+}
+
+**Exercise:** make it rebound at the edges. There's a trick! We'll need to keep track of direction also.
+
+What’s the “data model”? We're draing to a canvas, and the data is `x` and `y` coordinates. What’s the `draw`? `ellipse` function. What’s the “simulation”? How does it change each step?
+
+**Group Exercise:** create your own “data model” / “stop-motion animation” with this concept. 
+
+Ask yourselves these questions:
+- What data do you need?
+- What “simulation” do you need? What changes each frame? And how does it change?
+- How do you draw it?
+
+Here are some more examples:
+
+##### Water “drip” from a pipe.
+
+```javascript
+var x = 230;
+var y = 220;
+
+function setup() {
+  createCanvas(400, 400);
+  colorMode(HSB)
+}
+  
+function draw() {
+  background(0);
+  noStroke();
+
+  // draw pipe
+  rect(0, 200, x, 20);
+  
+  // draw drip
+  ellipse(x, y, 10);
+  
+  // down 3 pixels each frame, but maybe should be accelerating?
+  y = y + 3
+  
+  // if invisible for a full “height” amount…
+  if (y > height*2) {
+    // reset
+    y = 220;
+  }
+}
+```
+
+##### Two ellipses changing size, with random probability.
+
+```javascript
+var x1 = 100;
+var y1 = 200;
+var d1 = 100;
+
+var x2 = 300;
+var y2 = 200;
+var d2 = 30;
+
+function setup() {
+  createCanvas(400, 400);
+  colorMode(HSB)
+}
+  
+function draw() {
+  background(255);
+  noStroke();
+
+  // draw two ellipses
+  fill(120, 60, 100);
+  ellipse(x1, y1, d1);
+  
+  fill(240, 60, 100);
+  ellipse(x2, y2, d2);
+  
+  // 1% of the time
+  if (random() < 0.01) {
+    // random diameter between 10 and 400
+    d1 = random(10, 400);
+  }
+  
+  // 2% of the time…
+  if (random() < 0.02) {
+    // random diameter between 10 and 400
+    d2 = random(10, 400);
+  }
+}
+```
+
+##### Rotating square “smoke” from a smokestack.
+
+```javascript
+var x = 210;
+var y = 290;
+var r = 0;
+
+function setup() {
+  createCanvas(400, 400);
+}
+  
+function draw() {
+  background(0);
+  noStroke();
+
+  // draw smokestack
+  fill(255);
+  rect(195, height, 30, -100);
+
+  // darker as it gets closer to 0
+  fill(y);
+	translate(x, y)  
+  rotate(r);
+  rect(-10, -10, 20, 20);
+  
+  // up 3 pixels
+  y -= 3;
+  
+  // rotate 0.05 radians ~= 2.8 degrees per frame
+  r += 0.05
+  
+  // if reach past the top a bunch
+  if (y < -150) {
+    y = 290;
+  }
+}
+```
+
+
+#### Arrays & Objects.
+
+Arrays are lists of regular variables, but that you can access using another variable. That means: you can use loops to access them! Basically infinite variables! They let you **duplicate** “clay”.
+
+Basic example, extending the circles:
+
+```javascript
+var x0 = 45;
+var y0 = 50;
+
+var x1 = 55;
+var y1 = 65;
+
+var x2 = 50;
+var y2 = 80;
+
+function setup() {
+  createCanvas(400, 400);
+}
+  
+function draw() {
+  background(0);
+  noStroke();
+
+  ellipse(x0, y0, 10);  
+  x0 = x0 + 3;
+  y0 = y0 + 1;
+
+  ellipse(x1, y1, 10);
+  x1 = x1 + 3;
+  y1 = y1 + 1;
+
+  ellipse(x2, y2, 10);  
+  x2 = x2 + 3;
+  y2 = y2 + 1;
+}
+```
+
+Let’s say we want 100 circles. Well, that’s super annoying! Here the code above with arrays:
+
+```javascript
+var x = [];
+var y = [];
+
+x[0] = 45;
+y[0] = 50;
+
+x[1] = 55;
+y[1] = 65;
+
+x[2] = 50;
+y[2] = 80
+
+function setup() {
+  createCanvas(400, 400);
+}
+  
+function draw() {
+  background(0);
+  noStroke();
+
+  ellipse(x[0], y[0], 10);  
+  x[0] = x[0] + 3;
+  y[0] = y[0] + 1;
+
+  ellipse(x[1], y[1], 10);
+  x[1] = x[1] + 3;
+  y[1] = y[1] + 1;
+
+  ellipse(x[2], y[2], 10);  
+  x[2] = x[2] + 3;
+  y[2] = y[2] + 1;
+}
+```
+
+What’s the big deal? Well, the deal is that you can use another variable in place of the [#]:
+
+```javascript
+var x = [];
+var y = [];
+
+x[0] = 45;
+y[0] = 50;
+
+x[1] = 55;
+y[1] = 65;
+
+x[2] = 50;
+y[2] = 80
+
+function setup() {
+  createCanvas(400, 400);
+}
+  
+function draw() {
+  background(0);
+  noStroke();
+
+  for (var index = 0; index < 3; index = index + 1) {
+    ellipse(x[index], y[index], 10);
+    x[index] = x[index] + 3;
+    y[index] = y[index] + 1;
+  }
+}
+```
+
+And we can do something similar for the creation of the initial data, the initial “clay”:
+
+```javascript
+var x = [45, 55, 50];
+var y = [50, 65, 80];
+```
+
+…or…
+
+```javascript
+var x = [];
+var y = [];
+
+function setup() {
+  createCanvas(400, 400);
+  for (var index = 0; index < 100; index = index + 1) {
+    x[index] = random(10, width-10);
+    y[index] = random(10, height-10);
+  }
+}
+
+function draw() {
+  background(0);
+  noStroke();
+
+  for (var index = 0; index < 100; index = index + 1) {
+    ellipse(x[index], y[index], 10);
+    x[index] = x[index] + 3;
+    y[index] = y[index] + 1;
+  }
+}
+```
+
+Finally, to bounce these circles, we could just add another two arrays: one for `xDirection` and another for `yDirection`. Or, we can bundle together all the properties of each ellipse — the `x`, `y`, `xDirection`, and `yDirection`, into a single object. (This code uses `xd` in place of `xDirection`, and similarly for `y`.)
+
+```javascript
+var circles = [];
+
+function setup() {
+  createCanvas(400, 400);
+  for (var index = 0; index < 100; index = index + 1) {
+    // new "circle" object, with x, y, xd and yd properties:
+		circles[index] = {
+      x: random(10, width-10),
+      y: random(10, height-10),
+      xd: 1,
+      yd: 1
+    }
+  }
+}
+
+function draw() {
+  background(0);
+  noStroke();
+
+  for (var index = 0; index < 100; index = index + 1) {
+    // get circle object
+    var circle = circles[index];
+    
+    // draw it
+    ellipse(circle.x, circle.y, 10);
+
+    // move it according to direction
+    circle.x = circle.x + circle.xd * 3;
+    circle.y = circle.y + circle.yd * 1;
+    
+    // check boundaries and update directions
+    if (circle.x > width || circle.x < 0) {
+      circle.xd = -circle.xd;
+    }
+    if (circle.y > height || circle.y < 0) {
+      circle.yd = -circle.yd;
+    }
+  }
+}
+```
