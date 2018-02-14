@@ -376,6 +376,7 @@ Variables are the “clay”. The draw() function is the camera taking the photo
 
 Here’s an introductory example:
 
+```javascript
 var x = 45;
 var y = 50;
 
@@ -396,6 +397,7 @@ function draw() {
   // move down 1 pixel
   y = y + 1;
 }
+```
 
 **Exercise:** make it rebound at the edges. There's a trick! We'll need to keep track of direction also.
 
