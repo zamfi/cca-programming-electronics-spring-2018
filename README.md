@@ -503,10 +503,12 @@ function draw() {
   rect(195, height, 30, -100);
 
   // darker as it gets closer to 0
+  push();
   fill(y);
-	translate(x, y)  
+	translate(x, y);
   rotate(r);
   rect(-10, -10, 20, 20);
+  pop();
   
   // up 3 pixels
   y -= 3;
@@ -522,7 +524,7 @@ function draw() {
 ```
 
 
-#### Arrays & Objects.
+#### Arrays
 
 Arrays are lists of regular variables, but that you can access using another variable. That means: you can use loops to access them! Basically infinite variables! They let you **duplicate** “clay”.
 
@@ -661,7 +663,11 @@ function draw() {
 }
 ```
 
-Finally, to bounce these circles, we could just add another two arrays: one for `xDirection` and another for `yDirection`. Or, we can bundle together all the properties of each ellipse — the `x`, `y`, `xDirection`, and `yDirection`, into a single object. (This code uses `xd` in place of `xDirection`, and similarly for `y`.)
+**Exercise**: Modify the water drip or square smoke sketches to add additional "drops" or "smoke". Try without an array first. Then use an array to add 20 or more. (Note: Drops may be easier than smoke!)
+
+#### Objects
+
+Finally, to bounce these circles, we need the extra "direction" data. We could just add two more arrays: one for `xDirection` and another for `yDirection`. Or, we can bundle together all the properties of each circle — the `x`, `y`, `xDirection`, and `yDirection`, into a single object. (This code uses `xd` in place of `xDirection`, and similarly for `y`.)
 
 ```javascript
 var circles = [];
@@ -704,3 +710,7 @@ function draw() {
   }
 }
 ```
+
+Note what "event" triggers the bouncing. What if we do [something else](https://alpha.editor.p5js.org/jd/sketches/H1StgvZwG) in that `if` too?
+
+**Exercise**: Incorporate arrays or objects into your visual musical instrument.
