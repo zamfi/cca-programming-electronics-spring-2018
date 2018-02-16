@@ -776,3 +776,5 @@ Note what "event" triggers the bouncing. What if we do [something else](https://
 **Exercise**: Incorporate arrays or objects into your visual musical instrument.
 
 Here's the code we wrote together in class while working on this topic: [`circles-array.js`](https://gist.github.com/zamfi/6d0cf997c2585c6639e4517941af90a7) and [`circles-objects.js`](https://gist.github.com/zamfi/0698d29ad7ea0e1d53babfcc79bce672).
+
+[Homework for Week 5](hw/week5.md)
