@@ -20,7 +20,7 @@ var x = [];
 var y = [];
 ```
 
-THen, in your `setup` function, use a loop (`for` or `while`, whatever you're comfortable with) to put some initial values in your arrays:
+Then, in your `setup` function, use a loop (`for` or `while`, whatever you're comfortable with) to put some initial values in your arrays:
 
 ```javascript
 function setup() {
