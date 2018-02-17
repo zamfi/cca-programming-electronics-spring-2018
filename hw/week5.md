@@ -11,6 +11,43 @@ Following up on our in-class exercises with arrays, make the following modificat
 
 Also make sure you look at the code we used in class; that's available in the "Week 5" section of the [main course repository](../README.md).
 
+The fundamental array concepts you'll need for this assignment are as follows.
+
+To initially populate an array, first define your variables:
+
+```javascript
+var x = [];
+var y = [];
+```
+
+THen, in your `setup` function, use a loop (`for` or `while`, whatever you're comfortable with) to put some initial values in your arrays:
+
+```javascript
+function setup() {
+  createCanvas(400, 400);
+  
+  for (var i = 0; i < 100; i = i + 1) {
+    x[i] = random(0, width);
+    y[i] = random(0, height);
+  }
+}
+```
+
+Then, in your `draw` function, another loop lets you use the values from the arrays to actually draw 100 circles:
+
+```javascript
+function draw() {
+  background(255);
+  
+  fill(0);
+  for (var i = 0; i < 100; i = i = 1) {
+    ellipse(x[i], y[i], 10);
+  }
+}
+```
+
+Now, on to the assignments:
+
 ##### Water “drip” from a pipe.
 
 **Assignment**: `water-arrays.js` modify the code below, adding arrays to the data model, so that there are many independent drops visible at any given time. Consider giving each drop a small, random `x` and `y` speed. What range works well for those speeds?
