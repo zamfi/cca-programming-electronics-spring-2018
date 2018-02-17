@@ -132,4 +132,4 @@ function draw() {
 
 #### Visual musical instrument (due in class Wednesday)
 
-Finalize your visual musical instrument, and be ready for your in-class critique net week.
+Finalize your visual musical instrument, and be ready for your in-class critique next week.
