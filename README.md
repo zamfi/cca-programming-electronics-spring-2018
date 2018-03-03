@@ -778,3 +778,97 @@ Note what "event" triggers the bouncing. What if we do [something else](https://
 Here's the code we wrote together in class while working on this topic: [`circles-array.js`](https://gist.github.com/zamfi/6d0cf997c2585c6639e4517941af90a7) and [`circles-objects.js`](https://gist.github.com/zamfi/0698d29ad7ea0e1d53babfcc79bce672).
 
 [Homework for Week 5](hw/week5.md)
+
+### Week 6: Wednesday, February 21, 2018
+
+In class:
+- Critique & playtest of your visual musical instrument.
+
+[Homework for Week 6](hw/week6.md)
+
+### Week 7: Wednesday, February 28, 2018
+
+Today, Krystof led a discussion of how to write a program from scratch. Here are my notes on a similar session that may be useful for you.
+
+#### From Idea to Code
+
+Designing and implementing from scratch, using the data/render/simulate/user input breakdown, a sketch of moderate complexity.
+
+In class, we started building Pong together. We began by decomposing the game into components, and listing each component under the heading of Data Model, Rendering, Simulation, and User Input:
+
+|     Data Model     |     Rendering       |     Simulation     |      User Input       |
+|--------------------|---------------------|--------------------|-----------------------|
+| puck: `x`, `y`, `xSpeed`, `ySpeed` | puck | move puck, bounce puck |                  |
+| paddles: `x`, `y`  | paddles             | move paddles       |       arrow keys      |
+| scores: `player1`, `player2` | scores    | check for scoring  |                       |
+| defined playspace  | midline             |                    |                       |
+
+Then we started writing code, picking off the easiest / lowest hanging fruit from our chart above. Good practice is to prioritize the smallest possible thing that you can still show works: in our case, we started by modeling and rendering the puck. Then, simulating the puck. Then, modeling and rendering the paddles. Etc.
+
+We ended up with this code:
+
+```javascript
+var puck = {
+  x: 200,
+  y: 200,
+  xSpeed: 3,
+  ySpeed: -1,
+  r: 15
+};
+var edgeOffset = 20;
+
+var player1 = {
+  x: edgeOffset,
+  y: 200,
+  ht: 50,
+  wd: 10
+};
+
+var player2 = {
+  x: 400-edgeOffset,
+  y: 200,
+  ht: 50,
+  wd: 10
+};
+
+
+function setup() {
+  createCanvas(400, 400);
+}
+
+function draw() {
+  background(255);
+  
+  // draw puck
+  ellipse(puck.x, puck.y, puck.r);
+  
+  // bounce puck off top/bottom edges
+  if (puck.y < 0 || puck.y > height) {
+    puck.ySpeed = -puck.ySpeed;
+  }
+  
+  // move puck
+  puck.x += puck.xSpeed;
+  puck.y += puck.ySpeed;
+  
+  // draw paddles
+  rect(player1.x, player1.y, player1.wd, player1.ht);
+  rect(player2.x, player2.y, player2.wd, player2.ht);
+  
+}
+
+function keyPressed() {
+  // move paddles
+  if (key == 'Q') {
+    player1.y -= 3;
+  }
+  
+  if (key == 'A') {
+    player1.y += 3;
+  }
+}
+```
+
+In the homework, you'll extend this code to add scoring!
+
+[Homework for Week 7](hw/week7.md)

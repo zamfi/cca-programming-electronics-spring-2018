@@ -1,4 +1,4 @@
-### Homework 5 (due Monday, February 19, 2017)
+### Homework 5 (due Monday, February 19, 2018)
 
 In this homework assignment, you'll get some practice with arrays and then complete your visual musical instrument.
 
