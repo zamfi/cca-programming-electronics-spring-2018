@@ -11,7 +11,8 @@ Before you start writing any code, **make sure to browse through the [Arduino re
 **Assignment**: Extend your circuit to include two additional LEDs, for a total of 3, as shown in this schematic:
 
 ![three LEDs and a potentiometer](../img/leds-and-pot.png)
-Note: If you do not have a 1K Ohm resistor, you can use a different value resistor. Higher resistor values will make the LED dimmer, lower resistor will make the LED brighter.
+
+Note: You can find a 1K resistor in the Hybrid Lab -- feel free to use another value too, anything over about 100 will do. Higher resistances yield dimmer LEDs, though!
 
 Take a photo of your circuit and save it to your homework repository as `three-leds-and-a-pot.jpg`.
 
