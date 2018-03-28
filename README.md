@@ -872,3 +872,97 @@ function keyPressed() {
 In the homework, you'll extend this code to add scoring!
 
 [Homework for Week 7](hw/week7.md)
+
+### Week 10: Wednesday, March 28, 2018
+
+#### Quiz Review
+
+Make sure you get a review of the quiz before next week!
+
+#### Servomotors!
+
+With the DC motors, we used "fake analog" via PWM to modulate the speed of the motor. But PWM can also be used as an interpreted signal, rather than to fake a voltage. 
+
+Servomotors, a special kind of motor that designed for easy angular positioning, have a microcontroller inside them that read a PWM signal and convert that into a desired rotation.
+
+Using one of your two servos, **add** this circuit to your breadboard:
+
+![Servo signal on pin 5, using 6V battery pack for power](img/servo-circuit.png)
+
+Then, create a new sketch with this code, and upload it using Arduino:
+
+```c
+/* Sweep
+ by BARRAGAN <http://barraganstudio.com>
+ This example code is in the public domain.
+
+ modified 8 Nov 2013
+ by Scott Fitzgerald
+ http://www.arduino.cc/en/Tutorial/Sweep
+*/
+
+#include <Servo.h>
+
+Servo myservo;  // create servo object to control a servo
+// twelve servo objects can be created on most boards
+
+int pos = 0;    // variable to store the servo position
+
+void setup() {
+  myservo.attach(5);  // attaches the servo on pin 9 to the servo object
+}
+
+void loop() {
+  for (pos = 45; pos <= 135; pos += 1) { // goes from 45 degrees to 135 degrees
+    // in steps of 1 degree
+    myservo.write(pos);              // tell servo to go to position in variable 'pos'
+    delay(15);                       // waits 15ms for the servo to reach the position
+  }
+  for (pos = 135; pos >= 45; pos -= 1) { // goes from 135 degrees to 45 degrees
+    myservo.write(pos);              // tell servo to go to position in variable 'pos'
+    delay(15);                       // waits 15ms for the servo to reach the position
+  }
+}
+```
+
+Notice that the code above only uses the angle range of 45-135°. Not all servos have the same range, and this is a good starting point. Experiment with your servo and see if you can increase the range in the code. **Watch out for your servo exceeding one end of its range and getting hot** -- if this happens, unplug your servo from the 6V power supply, shrink your range, and try again. If your servo stays pegged for too long, it may burn out!
+
+The code above just "sweeps" your servo, but usually you'll want some kind of control. Consider this code instead:
+
+```c
+/*
+ Controlling a servo position using a potentiometer (variable resistor)
+ by Michal Rinott <http://people.interaction-ivrea.it/m.rinott>
+
+ modified on 8 Nov 2013
+ by Scott Fitzgerald
+ http://www.arduino.cc/en/Tutorial/Knob
+*/
+
+#include <Servo.h>
+
+Servo myservo;  // create servo object to control a servo
+
+int potpin = 0;  // analog pin used to connect the potentiometer
+int val;    // variable to read the value from the analog pin
+
+void setup() {
+  myservo.attach(5);  // attaches the servo on pin 9 to the servo object
+  Serial.begin(9600)
+}
+
+void loop() {
+  val = analogRead(potpin);            // reads the value of the potentiometer (value between 0 and 1023)
+  val = map(val, 0, 1023, 45, 135);    // scale it to use it with the servo (value between 0 and 180)
+  myservo.write(val);                  // sets the servo position according to the scaled value
+  Serial.print("Angle: "); Serial.println(val);
+  delay(15);                           // waits for the servo to get there
+}
+```
+
+This code uses your potentiometer as an input angle; what happens when you rotate your potentimeter? Change the angle endpoints 
+to match what you discovered your true endpoints to be in the previous exercise.
+
+**Exercise**: Attach your second servo to a new pin, and make it rotate in the opposite direction from your first servo.
+
+**Challenge**: Build a [mechanism](https://teachmetomake.files.wordpress.com/2010/02/machinations-mechanisms.pdf) powered by your two servos using found materials.
