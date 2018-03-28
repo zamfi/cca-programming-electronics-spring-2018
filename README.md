@@ -877,7 +877,7 @@ In the homework, you'll extend this code to add scoring!
 
 #### Quiz Review
 
-Make sure you get a review of the quiz before next week!
+Make sure you get a review of the quiz before next week
 
 #### Servomotors!
 
