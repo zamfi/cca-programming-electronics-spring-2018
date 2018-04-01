@@ -9,8 +9,7 @@ But first, write a proposal for your final project and [send it to me](mailto:jz
 
 #### Final Project
 
-Prepare a proposal for your final project. If you're not sure what you want to do, [email me]
-(mailto:jzamfirescupereira@cca.edu) a few thoughts and I'm happy to send you my opinions on what would make a good project.
+Prepare a proposal for your final project. If you're not sure what you want to do, [email me](mailto:jzamfirescupereira@cca.edu) a few thoughts and I'm happy to send you my opinions on what would make a good project.
 
 Some examples of past final projects:
 
